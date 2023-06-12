@@ -1,5 +1,23 @@
+import { useDispatch, useSelector } from "react-redux";
+
 function App() {
-  return <>Click on the Vite and React logos to learn more</>;
+  const counter = useSelector((state) => state.counter);
+  const dispatch = useDispatch();
+
+  const increment = () => {
+    dispatch({ type: "INCREMENT" });
+  };
+  const decrement = () => {
+    dispatch({ type: "DECREMENT" });
+  };
+  return (
+    <div>
+      <h1>Counter App</h1>
+      <h2>counter= {counter}</h2>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
 }
 
 export default App;
